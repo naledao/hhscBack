@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.100.9.232:3306/hhcs?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: hhcs
+    password: fpWa8fTiTXHd8maX
+    hikari:
+      maximum-pool-size: 100
+      minimum-idle: 3
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+
+
+
+  rabbitmq:
+    host: 47.100.9.232
+    port: 5672
+    username: zq
+    password: 1885251Qwer!
+    virtual-host: /zqrabbit1
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+
+
+
+
+
+  redis:
+    host: 47.100.9.232
+    port: 6379
+    password: 2419646091
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 3000ms
+
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+
+
+server:
+  port: 9630
+  ssl:
+    key-store-password: 5df3brk4
+    key-store: classpath:hhsc.kangnasi.xyz.pfx
+
+
+
+mybatis:
+  mapper-locations: classpath:dao/*.xml

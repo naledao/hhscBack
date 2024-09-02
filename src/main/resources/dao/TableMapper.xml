@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.hhcs.dao.TableMapper">
+
+    <!--创建表的 SQL 语句-->
+    <update id="createTable" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(11)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `openid`   varchar(225)   NULL DEFAULT NULL COMMENT '组号',
+            `msg`      varchar(225) NULL DEFAULT NULL COMMENT '用户名',
+            `time`      datetime(0) NULL DEFAULT NULL COMMENT '时间',
+            `pic`      varchar(255) NULL DEFAULT NULL COMMENT '头像',
+            PRIMARY KEY (`id`)) ENGINE = InnoDB
+            AUTO_INCREMENT = 9
+            CHARACTER SET = utf8mb4 COMMENT ='用于测试的用户表';
+    </update>
+
+
+
+<!--    创建评论表-->
+    <update id="createComments" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(11)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `openid`   varchar(225)   NULL DEFAULT NULL COMMENT '组号',
+            `name`     varchar(225)   NULL DEFAULT NULL COMMENT '姓名',
+            `msg`      mediumtext NULL DEFAULT NULL COMMENT '用户名',
+            `time`      datetime(0) NULL DEFAULT NULL COMMENT '时间',
+            `pic`      varchar(255) NULL DEFAULT NULL COMMENT '头像',
+            `warehouse`      int(11) NULL DEFAULT NULL COMMENT 'warehouse',
+            PRIMARY KEY (`id`)) ENGINE = InnoDB
+            AUTO_INCREMENT = 9
+            CHARACTER SET = utf8mb4 COMMENT ='用于测试的用户表';
+    </update>
+
+
+<!--    创建与chatgpt聊天表-->
+    <update id="createchattogpt" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(11)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `role`   varchar(225)   NULL DEFAULT NULL COMMENT '用户或chatgpt',
+            `message`     mediumtext   NULL DEFAULT NULL COMMENT '消息',
+            `openid`      varchar(225) NULL DEFAULT NULL COMMENT '用户openid',
+            `time`      datetime(0) NULL DEFAULT NULL COMMENT '时间',
+            `yorn`      int(11) NULL DEFAULT NULL COMMENT '是否回答',
+            PRIMARY KEY (`id`)) ENGINE = InnoDB
+            AUTO_INCREMENT = 9
+            CHARACTER SET = utf8mb4 COMMENT ='与chatgpt聊天表';
+    </update>
+
+</mapper>
+
